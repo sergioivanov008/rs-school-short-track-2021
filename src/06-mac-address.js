@@ -6,14 +6,20 @@
  * whether it's a MAC-48 address or not.
  *
  * @param {Number} inputString
- * @return {Boolean}
+ * @return {Number}
  *
  * @example
  * For 00-1B-63-84-45-E6, the output should be true.
  *
  */
-function isMAC48Address(/* n */) {
-  throw new Error('Not implemented');
+function isMAC48Address(n) {
+  if (n.length !== 17) return false;
+  const nArr = n.split('-');
+  if (nArr.length !== 6) return false;
+  const strNew = nArr.join('');
+  const regexOne = /[A-F0-9]{12}/;
+  const res = regexOne.test(strNew);
+  return res;
 }
 
 module.exports = isMAC48Address;
