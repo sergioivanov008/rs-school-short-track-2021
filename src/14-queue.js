@@ -25,10 +25,10 @@ class Queue {
     const addNode = new ListNode(element);
     if (!this.head) {
       this.head = addNode;
-      this.next = addNode;
+      this.tail = addNode;
     } else {
-      this.next.next = addNode;
-      this.next = addNode;
+      this.tail.next = addNode;
+      this.tail = addNode;
     }
     return element;
   }
